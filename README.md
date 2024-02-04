@@ -6,6 +6,12 @@ This is a Jinja extension for pythone simple http server (https://github.com/kei
 
 ## How to use?
 
+install
+
+```
+python3 -m pip install simple_http_server_jinja
+```
+
 ```python
 from simple_http_server import route, server
 from simple_http_server_jinja import JinjaView

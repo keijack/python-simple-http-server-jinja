@@ -6,6 +6,12 @@
 
 ## 如何使用?
 
+安装
+
+```
+python3 -m pip install simple_http_server_jinja
+```
+
 ```python
 from simple_http_server import route, server
 from simple_http_server_jinja import JinjaView

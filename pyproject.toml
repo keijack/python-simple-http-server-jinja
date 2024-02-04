@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "simple_http_server_jinja2"
+name = "simple_http_server_jinja"
 description = "This is a simple http server, use MVC like design."
 readme = "README.md"
 authors = [
@@ -23,11 +23,13 @@ classifiers = [
 dependencies = ["simple-http-server>=0.14", "jinja2>=3.1"]
 dynamic = ["version"]
 
+[tool.setuptools.packages.find]
+include=["simple_http_server_jinja"]
 
 
 [tool.setuptools.dynamic]
-version = {attr = "simple_http_server_jinja2.version"}
+version = {attr = "simple_http_server_jinja.version"}
 
 [project.urls]
-homepage = "https://github.com/keijack/python-simple-http-server-jinja2"
-repository = "https://github.com/keijack/python-simple-http-server-jinja2"
+homepage = "https://github.com/keijack/python-simple-http-server-jinja"
+repository = "https://github.com/keijack/python-simple-http-server-jinja"
