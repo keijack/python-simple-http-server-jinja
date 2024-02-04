@@ -2,7 +2,7 @@
 
 ## 这是什么?
 
-这是为工程 (https://github.com/keijack/python-simple-http-server) 编写的一个 Jinja 模板扩展，通过这个扩展你可以参考 MVC 的架构直接返回视图层。
+这是为工程 (https://gitee.com/keijack/python-simple-http-server) 编写的一个 Jinja 模板扩展，通过这个扩展你可以参考 MVC 的架构直接返回视图层。
 
 ## 如何使用?
 
