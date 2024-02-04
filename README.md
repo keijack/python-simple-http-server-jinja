@@ -14,11 +14,15 @@ python3 -m pip install simple_http_server_jinja
 
 ```python
 from simple_http_server import route, server
-from simple_http_server_jinja import JinjaView
+from simple_http_server_jinja import JinjaView, render
 
 @route("/index")
 def index(name: str = "world"):
     return JinjaView("index.html", {"name": name})
+
+@route("/page")
+def page():
+    return 200, render("page.html", {"a": "b"})
 
 def main():
     server.start(port=9090)
@@ -32,6 +36,7 @@ For the above code, the templates should be placed in the `templates` folder in 
 ```
 |--templates
 |----index.html
+|----page.html
 |--main.py
 ```
 

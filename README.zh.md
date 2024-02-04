@@ -20,6 +20,10 @@ from simple_http_server_jinja import JinjaView
 def index(name: str = "world"):
     return JinjaView("index.html", {"name": name})
 
+@route("/page")
+def page():
+    return 200, render("page.html", {"a": "b"})
+
 def main():
     server.start(port=9090)
 
@@ -32,6 +36,7 @@ if __name__ == "__main__":
 ```
 |--templates
 |----index.html
+|----page.html
 |--main.py
 ```
 
