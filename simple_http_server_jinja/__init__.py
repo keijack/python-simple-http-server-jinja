@@ -31,7 +31,7 @@ from jinja2 import Environment, FileSystemLoader
 from typing import Dict
 
 name = "simple_http_server_jinja"
-version = "0.1.0"
+version = "0.1.1"
 
 _logger = get_logger("simple_http_server_jinja")
 
@@ -58,19 +58,17 @@ def get_env(tag: str = DEFAULT_TAG) -> Environment:
     return ENVS[tag]
 
 
+def render(name, kwargs: dict = {}, env_tag: str = DEFAULT_TAG) -> str:
+    env = get_env(env_tag)
+    tpl = env.get_template(name)
+    return tpl.render(kwargs)
+
+
 class JinjaView(Response):
 
     def __init__(self, name, kwargs: dict = {},
                  env_tag: str = DEFAULT_TAG,
                  status_code: int = 200,
                  headers: Dict[str, str] = None):
-        env = get_env(env_tag)
-        tpl = env.get_template(name)
-        body = tpl.render(kwargs)
-        super().__init__(status_code, headers, body=body)
-
-
-def render(name, kwargs: dict = {}, env_tag: str = DEFAULT_TAG) -> str:
-    env = get_env(env_tag)
-    tpl = env.get_template(name)
-    return tpl.render(kwargs)
+        super().__init__(status_code, headers, body=render(
+            name, kwargs=kwargs, env_tag=env_tag))
